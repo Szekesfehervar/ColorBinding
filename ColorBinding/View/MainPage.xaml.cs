@@ -25,6 +25,7 @@ namespace ColorBinding
         public MainPage()
         {
             this.InitializeComponent();
+            DataContext = "ViewModels/MainViewModel.cs";
         }
 
 
