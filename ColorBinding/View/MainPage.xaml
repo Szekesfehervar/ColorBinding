@@ -7,30 +7,27 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="using:ColorBinding.ViewModel"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1280" Height="720" >
     <Page.DataContext>
         <viewmodel:MainViewModel/>
     </Page.DataContext>
 
-    <Grid>
+    <Grid Width="1280" Height="720">
         <TextBlock HorizontalAlignment="Left" Height="100"  Margin="32,125,0,0" Text="Red" TextWrapping="Wrap" VerticalAlignment="Top"  Width="295" FontSize="50" />
         <TextBlock HorizontalAlignment="Left" Height="100" Margin="32,304,0,0" Text="Green" TextWrapping="Wrap" VerticalAlignment="Top" Width="295"  FontSize="50"/>
         <TextBlock HorizontalAlignment="Left" Height="100" Margin="32,456,0,0" Text="Blue" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="50"/>
 
         <Slider HorizontalAlignment="Left"  Height="33" Margin="235,144,0,0" VerticalAlignment="Top" Width="669" Maximum="255" x:Name="RedSlider" Value="{Binding Red, Mode=Twoway}"/>
-        <TextBox HorizontalAlignment="Left" x:Name="RedState" Height="60" Margin="975,117,0,0" Text="{Binding Value, ElementName=RedSlider}" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" FontSize="36"/>
+        <TextBox HorizontalAlignment="Left" x:Name="RedState" Height="60"  Margin="975,117,0,0" Text="{Binding Value, ElementName=RedSlider, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" FontSize="36"/>
 
         <Slider HorizontalAlignment="Left" Height="33" Margin="235,323,0,0" VerticalAlignment="Top" Width="669" Maximum="255" x:Name="GreenSlider" Value="{Binding Green, Mode=Twoway}"/>
-        <TextBox HorizontalAlignment="Left" Height="60" Margin="975,296,0,0" Text="{Binding Value, ElementName=GreenSlider}" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" FontSize="36"/>
+        <TextBox HorizontalAlignment="Left" Height="60" Margin="975,296,0,0" Text="{Binding Value, ElementName=GreenSlider, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" FontSize="36"/>
 
         <Slider HorizontalAlignment="Left" Height="33" Margin="235,473,0,0" VerticalAlignment="Top" Width="669" Maximum="255" x:Name="BlueSlider" Value="{Binding Blue, Mode=Twoway}"/>
-        <TextBox HorizontalAlignment="Left" Height="60" Margin="975,446,0,0" Text="{Binding Value, ElementName=BlueSlider}" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" FontSize="36"/>
-
-        <TextBlock HorizontalAlignment="Left" Height="50" Margin="972,693,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="50" Margin="1331,693,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" FontSize="36"/>
-        <Rectangle Stroke="Black" Margin="179,600,1002,106"/>
-        <TextBlock HorizontalAlignment="Left" Height="45" Margin="951,778,0,0" Text="Dec" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="45" Margin="1310,778,0,0" Text="Hex" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="36"/>
+        <TextBox HorizontalAlignment="Left" Height="60" Margin="975,446,0,0" Text="{Binding Value, ElementName=BlueSlider, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Width="98" FontSize="36"/>
+        <Rectangle Stroke="Black" Fill="{Binding SelectedColor}" Margin="204,543,902,28"/>
+        <TextBlock HorizontalAlignment="Left" Text="{Binding MergedDecimal}" Height="45" Margin="611,613,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="255" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Text="{Binding HexaDecimal}" Height="45" Margin="1024,644,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="36"/>
 
     </Grid>
 </Page>
